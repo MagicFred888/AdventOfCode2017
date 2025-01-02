@@ -94,5 +94,33 @@
             }
             return shortestPath;
         }
+
+        public List<string> GetNodesInNetwork(string refNodeName)
+        {
+            if (!_allNodes.TryGetValue(refNodeName, out Node? startNode))
+            {
+                throw new ArgumentException($"Node {refNodeName} does not exist in the network.");
+            }
+
+            HashSet<Node> visited = [];
+            Queue<Node> queue = [];
+            List<string> result = [];
+
+            queue.Enqueue(startNode);
+            visited.Add(startNode);
+
+            while (queue.Count > 0)
+            {
+                Node currentNode = queue.Dequeue();
+                result.Add(currentNode.Name);
+                foreach (Node linkedNode in currentNode.Links.Keys.Where(n => !visited.Contains(n)))
+                {
+                    visited.Add(linkedNode);
+                    queue.Enqueue(linkedNode);
+                }
+            }
+
+            return result;
+        }
     }
 }
