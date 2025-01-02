@@ -8,6 +8,7 @@ public enum TouchingMode
 {
     Horizontal,
     Vertical,
+    HorizontalAndVertical,
     Diagonal,
     All
 }
@@ -20,6 +21,7 @@ public class QuickMatrix
     {
         { TouchingMode.Horizontal, new() { new Point(-1, 0), new Point(1, 0) } },
         { TouchingMode.Vertical, new() { new Point(0, -1), new Point(0, 1) } },
+        { TouchingMode.HorizontalAndVertical, new() { new Point(-1, 0), new Point(1, 0), new Point(0, -1), new Point(0, 1) } },
         { TouchingMode.Diagonal, new() { new Point(-1, -1), new Point(1, 1), new Point(-1, 1), new Point(1, -1) } },
         { TouchingMode.All, new() { new Point(-1, -1), new Point(0, -1), new Point(1, -1), new Point(-1, 0), new Point(1, 0), new Point(-1, 1), new Point(0, 1), new Point(1, 1) } }
     };

@@ -22,11 +22,18 @@ namespace AdventOfCode2017.Solver
         public override string GetSolution2(bool isChallenge)
         {
             // Get base data
-            List<byte> loop = Enumerable.Range(0, isChallenge ? 256 : 5).ToList().ConvertAll(i => (byte)i);
             List<byte> sequence = _puzzleInput[0].ToCharArray().ToList().ConvertAll(c => (byte)c);
-            sequence.AddRange([17, 31, 73, 47, 23]);
+
 
             // Scramble
+            return CreateDenseHash(sequence);
+        }
+
+        public static string CreateDenseHash(List<byte> sequence)
+        {
+            // Scramble after adding special sequence
+            sequence.AddRange([17, 31, 73, 47, 23]);
+            List<byte> loop = Enumerable.Range(0, 256).ToList().ConvertAll(i => (byte)i);
             loop = ScrambleLoop(loop, sequence, 64);
 
             // Create dense hash
@@ -45,7 +52,7 @@ namespace AdventOfCode2017.Solver
             return denseHash.Aggregate("", (acc, b) => acc + b.ToString("x2"));
         }
 
-        private static List<byte> ScrambleLoop(List<byte> loop, List<byte> sequence, int nbrOfScramble)
+        public static List<byte> ScrambleLoop(List<byte> loop, List<byte> sequence, int nbrOfScramble)
         {
             int pos = 0;
             int skipSize = 0;

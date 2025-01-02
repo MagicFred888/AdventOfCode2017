@@ -38,6 +38,7 @@ internal static class Program
             Console.WriteLine(@"                 / /\ \ / _` \ \ / / _ \ '_ \| __| |  | |  _| |    / _ \ / _` |/ _ \ / /| | | || |  / /   ");
             Console.WriteLine(@"                / ____ \ (_| |\ V /  __/ | | | |_| |__| | | | |___| (_) | (_| |  __// /_| |_| || | / /    ");
             Console.WriteLine(@"               /_/    \_\__,_| \_/ \___|_| |_|\__|\____/|_|  \_____\___/ \__,_|\___|____|\___/ |_|/_/     ");
+            Console.WriteLine("");
 
             // Item to manage automatic solver selection
             string toSolveInfo = "";
