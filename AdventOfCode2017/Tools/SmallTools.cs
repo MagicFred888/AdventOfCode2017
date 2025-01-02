@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AdventOfCode2017.Tools;
 
-public static class Tools
+public static class SmallTools
 {
     public static List<List<int>> GenerateCombinations(int totalItems, int itemsNeeded)
     {

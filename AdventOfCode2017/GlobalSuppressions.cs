@@ -5,6 +5,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Blocker Code Smell", "S2368:Public methods should not have multidimensional array parameters", Justification = "This is a debug methode to display an array", Scope = "member", Target = "~M:AdventOfCode2017.Tools.Tools.DebugPrint(System.Object[,],System.Collections.Generic.Dictionary{System.String,System.String},System.String)")]
-[assembly: SuppressMessage("Blocker Code Smell", "S2368:Public methods should not have multidimensional array parameters", Justification = "This is a debug methode to display an array", Scope = "member", Target = "~M:AdventOfCode2017.Tools.Tools.DebugPrint(System.Char[,])")]
+[assembly: SuppressMessage("Blocker Code Smell", "S2368:Public methods should not have multidimensional array parameters", Justification = "This is a debug methode to display an array", Scope = "member", Target = "~M:AdventOfCode2017.Tools.SmallTools.DebugPrint(System.Object[,],System.Collections.Generic.Dictionary{System.String,System.String},System.String)")]
+[assembly: SuppressMessage("Blocker Code Smell", "S2368:Public methods should not have multidimensional array parameters", Justification = "This is a debug methode to display an array", Scope = "member", Target = "~M:AdventOfCode2017.Tools.SmallTools.DebugPrint(System.Char[,])")]
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "This is a sample class that will be removed at the end of the project", Scope = "member", Target = "~M:AdventOfCode2017.Solver.DayXX.ExtractData")]
