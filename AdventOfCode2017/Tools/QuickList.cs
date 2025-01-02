@@ -34,6 +34,16 @@ public static class QuickList
         });
     }
 
+    public static List<List<byte>> ListOfListByte(List<string> rawData, string separator = "", bool removeEmpty = false)
+    {
+        return ListOfListString(rawData, [separator], removeEmpty).ConvertAll(r => r.ConvertAll(v => byte.Parse(v)));
+    }
+
+    public static List<List<byte>> ListOfListByte(List<string> rawData, string[] separator, bool removeEmpty = false)
+    {
+        return ListOfListString(rawData, separator, removeEmpty).ConvertAll(r => r.ConvertAll(v => byte.Parse(v)));
+    }
+
     public static List<List<int>> ListOfListInt(List<string> rawData, string separator = "", bool removeEmpty = false)
     {
         return ListOfListString(rawData, [separator], removeEmpty).ConvertAll(r => r.ConvertAll(v => int.Parse(v)));
