@@ -70,6 +70,14 @@ public class QuickMatrix
                 ObjectVal = ObjectVal
             };
         }
+
+        public void Set(CellInfo cellInfo)
+        {
+            StringVal = cellInfo.StringVal;
+            LongVal = cellInfo.LongVal;
+            BoolVal = cellInfo.BoolVal;
+            ObjectVal = cellInfo.ObjectVal;
+        }
     }
 
     public int ColCount { get; private set; }
@@ -230,6 +238,12 @@ public class QuickMatrix
         {
             cell.BoolVal = value;
         }
+    }
+
+    public void SetCells(QuickMatrix refMatrix, Point startPosition)
+    {
+        // Copy value from subPattern into this matrix
+        refMatrix.Cells.ForEach(c => Cell(c.Position.Add(startPosition)).Set(c));
     }
 
     public void RotateCounterClockwise()
@@ -466,6 +480,13 @@ public class QuickMatrix
         return result;
     }
 
+    public QuickMatrix GetSubMatrix(Point startPos, Point endPos)
+    {
+        QuickMatrix result = new(endPos.X - startPos.X + 1, endPos.Y - startPos.Y + 1);
+        GetCellsInRange(startPos, endPos).ForEach(c => result.Cell(c.Position.Subtract(startPos)).Set(c));
+        return result;
+    }
+
     internal List<CellInfo> GetNeighbours(CellInfo cell)
     {
         // Get all neighbours
@@ -479,5 +500,10 @@ public class QuickMatrix
             }
         }
         return result;
+    }
+
+    public override string ToString()
+    {
+        return string.Join("\\", Rows.Select(r => string.Join("", r.Select(c => c.StringVal))));
     }
 }
