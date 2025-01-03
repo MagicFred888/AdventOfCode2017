@@ -38,6 +38,11 @@ public static class PointExtensions
         return new Point(centerPoint.X - y, centerPoint.Y + x);
     }
 
+    public static Point Rotate180Degree(this Point point)
+    {
+        return point.Rotate180Degree(new Point(0, 0));
+    }
+
     public static Point Rotate180Degree(this Point point, Point centerPoint)
     {
         int x = point.X - centerPoint.X;
